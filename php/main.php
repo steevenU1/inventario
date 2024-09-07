@@ -62,6 +62,7 @@
 	function paginador_tablas($pagina,$Npaginas,$url,$botones){
 		$tabla='<nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">';
 
+        #comprobar pagina uno y odulta o mostrar pagina anterior
 		if($pagina<=1){
 			$tabla.='
 			<a class="pagination-previous is-disabled" disabled >Anterior</a>
@@ -87,7 +88,8 @@
 			}
 			$ci++;
 		}
-
+        
+        #validar la ultima pagina y desabilitar boton siguiente
 		if($pagina==$Npaginas){
 			$tabla.='
 			</ul>
