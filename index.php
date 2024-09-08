@@ -1,5 +1,5 @@
 <?php
-    require "./inc/sesion_start.php";
+    require "./inc/session_start.php";
   ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -17,6 +17,11 @@
     }
 
     if(is_file("./vista/".$_GET['vista'].".php") && $_GET['vista']!="login" && $_GET['vista']!="404"){
+
+      if((!isset($_SESSION['id']) || $_SESSION['id']=="") || (!isset($_SESSION['usuario']) || $_SESSION['usuario']=="")){
+        include "./vista/logout.php";
+        exit();
+    }
 
       include "./inc/navbar.php";
       include "./vista/".$_GET['vista'].".php";

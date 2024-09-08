@@ -119,6 +119,7 @@
         ';
         exit();
     }else{
+        /*== encriptar contraseña o texto plano ==*/
         $clave=password_hash($clave_1,PASSWORD_BCRYPT,["cost"=>10]);
     }
 
